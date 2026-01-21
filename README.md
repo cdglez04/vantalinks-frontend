@@ -1,2 +1,2 @@
 # vantalinks-frontend
-Frontend for production
+Frontend for production.
