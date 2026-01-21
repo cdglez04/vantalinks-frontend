@@ -1,3 +1,5 @@
+import API_URL from '../config';
+
 export const getCsrfToken = () => {
     const name = 'csrftoken';
     let cookieValue = null;
@@ -16,7 +18,7 @@ export const getCsrfToken = () => {
 
 export const fetchCsrfToken = async () => {
     try {
-        await fetch('http://localhost:8000/api/csrf/', {
+        await fetch(`${API_URL}/api/csrf/`, {
             credentials: 'include',
         });
     } catch (error) {
