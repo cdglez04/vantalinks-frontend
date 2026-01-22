@@ -18,10 +18,6 @@ function Login(){
 
     const[showPassword, setShowPassword] = useState(false)
 
-    useEffect(() => {
-      fetchCsrfToken();
-    }, [])
-
     const handleChange = (e) => {
       const {name, value} = e.target
       setFormData((prevData) => ({
