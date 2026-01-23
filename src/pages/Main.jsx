@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { TextAnimate } from "@/components/ui/text-animate.jsx"
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { getCsrfToken } from '@/utils/csrf';
+import { ensureCsrfToken } from '@/utils/csrf';
 
 import {
   DropdownMenu,
@@ -102,9 +102,9 @@ function Main(){
         }, 3000);
     }
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
         try {
-            const csrftoken = getCsrfToken();
+            const csrftoken = await ensureCsrfToken();
             fetch(`${API_URL}/api/logout/`,{
                 method:"POST",
                 credentials: "include",
@@ -133,7 +133,7 @@ function Main(){
     //Get info of the logged user 
     const getUserInfo = async () => {
             try {
-                const csrftoken = getCsrfToken();
+                const csrftoken = await ensureCsrfToken();
                 const response = await fetch(`${API_URL}/api/main/user_info/`,{
                     method:"GET",
                     credentials:"include",
@@ -167,7 +167,7 @@ function Main(){
     //get sections of the logged user
     const getSections = async () => {
             try {
-               const csrftoken = getCsrfToken();
+               const csrftoken = await ensureCsrfToken();
                 const response = await fetch(`${API_URL}/api/main/user_sections/`,{
                     method:"GET",
                     credentials:"include",
@@ -189,7 +189,7 @@ function Main(){
 
     const getAllUrls = async () =>{
         try {
-            const csrftoken = getCsrfToken()
+            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/all_urls/`, {
                 method: 'GET',
                 credentials: "include",
@@ -227,7 +227,7 @@ function Main(){
         setSectionId(section_id)
         setSectionName(name_section)
         try {
-            const csrftoken = getCsrfToken();
+            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/urls_by_sections/${section_id}/`,{
                 method:"GET",
                 credentials: "include",
@@ -256,7 +256,7 @@ function Main(){
 
     const createSectionFunction = async () => {
         try {
-            const csrftoken = getCsrfToken()
+            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/create_section/`, {
                 method:"POST",
                 credentials: "include",
@@ -290,7 +290,7 @@ function Main(){
 
     const updateSectionNameFunction = async () => {
         try {
-            const csrftoken = getCsrfToken();
+            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/update_section/${updateSectionId}/`,{
                 method:"PUT",
                 credentials: "include",
@@ -327,7 +327,7 @@ function Main(){
 
     const deleteSectionFunction = async () => {
         try {
-            const csrftoken = getCsrfToken();
+            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/delete_section/${deleteSectionId}/`,{
                 method:"DELETE",
                 credentials: "include",
@@ -357,7 +357,7 @@ function Main(){
 
     const createUrlFunction = async () => {
         try {
-            const csrftoken = getCsrfToken()
+            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/create_url/`, {
                 method:'POST',
                 credentials: "include",
@@ -396,7 +396,7 @@ function Main(){
 
     const editUrlFunction = async () => {
         try {
-            const csrftoken = getCsrfToken() 
+            const csrftoken = await ensureCsrfToken(); 
             const response = await fetch(`${API_URL}/api/main/edit_url/${editUrlId}/`,{
                 method:"PUT",
                 credentials: "include",
@@ -437,7 +437,7 @@ function Main(){
 
     const deleteUrlFunction = async () => {
         try {
-            const csrftoken = getCsrfToken()
+            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/delete_url/${deleteUrlId}/`,{
                     method:"DELETE",
                     credentials: "include",
@@ -477,7 +477,7 @@ function Main(){
 
     const editUserInfo = async () => {
         try {
-            const csrftoken = getCsrfToken()
+            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/edit_user_info/`,{
                 method:"PUT",
                     credentials: "include",
@@ -514,7 +514,7 @@ function Main(){
 
     const changePassword = async () => {
         try {
-            const csrftoken = getCsrfToken()
+            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/change_password/`,{
                 method:"PUT",
                 credentials: "include",
@@ -554,7 +554,7 @@ function Main(){
     
     const getAllFavoritesUrls = async () => {
         try {
-            const csrftoken = getCsrfToken()
+            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/all_favorites/`,{
                 method:'GET',
                 credentials: "include",
@@ -576,7 +576,7 @@ function Main(){
 
     const favoriteFunction = async (urlId, isFavorite) => {
         try {
-            const csrftoken = getCsrfToken()
+            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/favorite/`,{
                     method:"PUT",
                     credentials: "include",
@@ -612,7 +612,7 @@ function Main(){
     }
 
     const downloadBackupJson = async () => {
-        const csrftoken = getCsrfToken()
+        const csrftoken = await ensureCsrfToken();
         const response = await fetch(`${API_URL}/api/main/backup_json/`,{
             method:"GET",
                     credentials: "include",
