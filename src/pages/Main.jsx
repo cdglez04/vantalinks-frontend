@@ -133,14 +133,9 @@ function Main(){
     //Get info of the logged user 
     const getUserInfo = async () => {
             try {
-                const csrftoken = await ensureCsrfToken();
                 const response = await fetch(`${API_URL}/api/main/user_info/`,{
                     method:"GET",
                     credentials:"include",
-                    headers:{
-                        "X-CSRFToken": csrftoken,
-                        "Content-Type": "application/json", 
-                    }
                 });
                 if (response.ok){
                     const data = await response.json();
@@ -161,20 +156,14 @@ function Main(){
                 console.log("Error", error)
             }   
         } 
-    
-    useEffect(()=>{getUserInfo();},[])
 
     //get sections of the logged user
     const getSections = async () => {
             try {
-               const csrftoken = await ensureCsrfToken();
                 const response = await fetch(`${API_URL}/api/main/user_sections/`,{
                     method:"GET",
                     credentials:"include",
-                    headers:{
-                        "X-CSRFToken": csrftoken,
-                        "Content-Type": "application/json", 
-                    }
+                    
                 });
                 if (response.ok){
                     const data = await response.json();
@@ -185,18 +174,12 @@ function Main(){
             }   
         };
 
-    useEffect(()=>{getSections()},[])
-
     const getAllUrls = async () =>{
         try {
-            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/all_urls/`, {
                 method: 'GET',
                 credentials: "include",
-                headers: {
-                    'X-CSRFToken': csrftoken,
-                    'Content-Type': 'application/json'
-                }
+                
             })
             if (response.ok) {
                 const data = await response.json()
@@ -211,7 +194,15 @@ function Main(){
         } 
     }
 
-    useEffect(()=>{getAllUrls()},[])
+    useEffect(() => {
+        const init = async () => {
+            await getUserInfo();   
+            await getSections();
+            await getAllUrls();
+        };
+        init();
+    }, []);
+
 
     useEffect(() =>{
         if (keyWord.trim() !== '') {
@@ -227,14 +218,10 @@ function Main(){
         setSectionId(section_id)
         setSectionName(name_section)
         try {
-            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/urls_by_sections/${section_id}/`,{
                 method:"GET",
                 credentials: "include",
-                headers: {
-                    'X-CSRFToken': csrftoken,
-                    'Content-Type': 'application/json',
-                }
+                
             })        
                 if (response.ok){
                     const data = await response.json(); 
