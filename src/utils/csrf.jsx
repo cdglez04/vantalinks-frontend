@@ -42,3 +42,8 @@ export const ensureCsrfToken = async () => {
     return cachedCsrfToken;
 }
 
+export const refreshCsrfToken = async () => {
+    cachedCsrfToken = null; 
+    csrfPromise = null;
+    return await fetchCsrfToken(); 
+}

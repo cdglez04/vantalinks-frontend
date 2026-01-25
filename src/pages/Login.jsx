@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { TextAnimate } from "@/components/ui/text-animate.jsx"
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { ensureCsrfToken } from '@/utils/csrf';
+import { ensureCsrfToken, refreshCsrfToken } from '@/utils/csrf';
 
 
 
@@ -45,7 +45,7 @@ function Login(){
       if (!response.ok) throw new Error("error")
 
       const data = await response.json()
-
+      await refreshCsrfToken();
       navigate("/main")
 
       } catch(error) {
