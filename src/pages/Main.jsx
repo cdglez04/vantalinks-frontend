@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { TextAnimate } from "@/components/ui/text-animate.jsx"
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { ensureCsrfToken } from '@/utils/csrf';
+import { ensureCsrfCookie, getCsrfTokenFromCookie } from '@/utils/csrf';
 
 import {
   DropdownMenu,
@@ -104,7 +104,8 @@ function Main(){
 
     const handleLogout = async () => {
         try {
-            const csrftoken = await ensureCsrfToken();
+            await ensureCsrfCookie();
+            const csrftoken = getCsrfTokenFromCookie();
             fetch(`${API_URL}/api/logout/`,{
                 method:"POST",
                 credentials: "include",
@@ -243,7 +244,8 @@ function Main(){
 
     const createSectionFunction = async () => {
         try {
-            const csrftoken = await ensureCsrfToken();
+            await ensureCsrfCookie();
+            const csrftoken = getCsrfTokenFromCookie();
             const response = await fetch(`${API_URL}/api/main/create_section/`, {
                 method:"POST",
                 credentials: "include",
@@ -277,7 +279,8 @@ function Main(){
 
     const updateSectionNameFunction = async () => {
         try {
-            const csrftoken = await ensureCsrfToken();
+            await ensureCsrfCookie();
+            const csrftoken = getCsrfTokenFromCookie();
             const response = await fetch(`${API_URL}/api/main/update_section/${updateSectionId}/`,{
                 method:"PUT",
                 credentials: "include",
@@ -314,7 +317,8 @@ function Main(){
 
     const deleteSectionFunction = async () => {
         try {
-            const csrftoken = await ensureCsrfToken();
+            await ensureCsrfCookie();
+            const csrftoken = getCsrfTokenFromCookie();
             const response = await fetch(`${API_URL}/api/main/delete_section/${deleteSectionId}/`,{
                 method:"DELETE",
                 credentials: "include",
@@ -344,7 +348,8 @@ function Main(){
 
     const createUrlFunction = async () => {
         try {
-            const csrftoken = await ensureCsrfToken();
+            await ensureCsrfCookie();
+            const csrftoken = getCsrfTokenFromCookie();
             const response = await fetch(`${API_URL}/api/main/create_url/`, {
                 method:'POST',
                 credentials: "include",
@@ -383,7 +388,8 @@ function Main(){
 
     const editUrlFunction = async () => {
         try {
-            const csrftoken = await ensureCsrfToken(); 
+            await ensureCsrfCookie();
+            const csrftoken = getCsrfTokenFromCookie(); 
             const response = await fetch(`${API_URL}/api/main/edit_url/${editUrlId}/`,{
                 method:"PUT",
                 credentials: "include",
@@ -424,7 +430,8 @@ function Main(){
 
     const deleteUrlFunction = async () => {
         try {
-            const csrftoken = await ensureCsrfToken();
+            await ensureCsrfCookie();
+            const csrftoken = getCsrfTokenFromCookie();
             const response = await fetch(`${API_URL}/api/main/delete_url/${deleteUrlId}/`,{
                     method:"DELETE",
                     credentials: "include",
@@ -464,7 +471,8 @@ function Main(){
 
     const editUserInfo = async () => {
         try {
-            const csrftoken = await ensureCsrfToken();
+            await ensureCsrfCookie();
+            const csrftoken = getCsrfTokenFromCookie();
             const response = await fetch(`${API_URL}/api/main/edit_user_info/`,{
                 method:"PUT",
                     credentials: "include",
@@ -501,7 +509,8 @@ function Main(){
 
     const changePassword = async () => {
         try {
-            const csrftoken = await ensureCsrfToken();
+            await ensureCsrfCookie();
+            const csrftoken = getCsrfTokenFromCookie();
             const response = await fetch(`${API_URL}/api/main/change_password/`,{
                 method:"PUT",
                 credentials: "include",
@@ -541,14 +550,9 @@ function Main(){
     
     const getAllFavoritesUrls = async () => {
         try {
-            const csrftoken = await ensureCsrfToken();
             const response = await fetch(`${API_URL}/api/main/all_favorites/`,{
                 method:'GET',
                 credentials: "include",
-                headers: {
-                    'X-CSRFToken' : csrftoken,
-                    'Content-Type': 'application/json'
-                },
             })
             if (response.ok){
                 const data = await response.json();
@@ -563,7 +567,8 @@ function Main(){
 
     const favoriteFunction = async (urlId, isFavorite) => {
         try {
-            const csrftoken = await ensureCsrfToken();
+            await ensureCsrfCookie();
+            const csrftoken = getCsrfTokenFromCookie();
             const response = await fetch(`${API_URL}/api/main/favorite/`,{
                     method:"PUT",
                     credentials: "include",
@@ -599,7 +604,8 @@ function Main(){
     }
 
     const downloadBackupJson = async () => {
-        const csrftoken = await ensureCsrfToken();
+        await ensureCsrfCookie();
+        const csrftoken = getCsrfTokenFromCookie();
         const response = await fetch(`${API_URL}/api/main/backup_json/`,{
             method:"GET",
                     credentials: "include",

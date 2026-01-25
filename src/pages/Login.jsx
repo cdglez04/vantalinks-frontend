@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { TextAnimate } from "@/components/ui/text-animate.jsx"
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { ensureCsrfToken } from '@/utils/csrf';
+import { ensureCsrfCookie, getCsrfTokenFromCookie } from '@/utils/csrf';
 
 
 
@@ -29,7 +29,8 @@ function Login(){
      const handleSubmit = async (e) => {
       e.preventDefault()
       try {
-        const csrftoken = await ensureCsrfToken();
+        await ensureCsrfCookie();
+        const csrftoken = getCsrfTokenFromCookie();
 
         const response = await fetch(`${API_URL}/api/login/`, {
         method: "POST",            
