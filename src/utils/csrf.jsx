@@ -1,20 +1,44 @@
 import API_URL from '../config';
 
-export const ensureCsrfCookie = async () => {
-    await fetch(`${API_URL}/api/csrf/`, {
-        method: 'GET',
-        credentials: 'include',
-    });
-};
+let cachedCsrfToken = null;
+let csrfPromise = null;
 
-export const getCsrfTokenFromCookie = () => {
-    const name = 'csrftoken=';
-    const cookies = document.cookie.split(';');
-    for (let cookie of cookies) {
-        cookie = cookie.trim();
-        if (cookie.startsWith(name)) {
-            return cookie.substring(name.length);
-        }
+export const getCsrfToken = () => {
+    return cachedCsrfToken;
+}
+
+export const fetchCsrfToken = async () => {
+        if (csrfPromise) {
+        return csrfPromise;
     }
-    return null;
-};
+    
+    csrfPromise = (async () => {
+        try {
+            const response = await fetch(`${API_URL}/api/csrf/`, {
+                method: 'GET',
+                credentials: 'include',
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                cachedCsrfToken = data.csrfToken;
+                console.log('CSRF token obtained:', cachedCsrfToken);
+                return cachedCsrfToken;
+            }
+        } catch (error) {
+            console.error('Error fetching CSRF token:', error);
+        } finally {
+            csrfPromise = null;
+        }
+    })();
+    
+    return csrfPromise;
+}
+
+export const ensureCsrfToken = async () => {
+    if (!cachedCsrfToken) {
+        await fetchCsrfToken();
+    }
+    return cachedCsrfToken;
+}
+
