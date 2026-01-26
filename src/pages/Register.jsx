@@ -5,7 +5,7 @@ import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button
 import { TextAnimate } from "@/components/ui/text-animate.jsx"
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { refreshCsrfToken } from '@/utils/csrf';
+import { ensureCsrfToken, refreshCsrfToken } from '@/utils/csrf';
 
 
 function Register(){
