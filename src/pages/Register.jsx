@@ -5,6 +5,7 @@ import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button
 import { TextAnimate } from "@/components/ui/text-animate.jsx"
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { refreshCsrfToken } from '@/utils/csrf';
 
 
 function Register(){
@@ -40,8 +41,7 @@ function Register(){
 
       if (!response.ok) throw new Error("error")
 
-      const data = await response.json()
-      console.log("User registered", data)
+      
 
       navigate("/main")
 
