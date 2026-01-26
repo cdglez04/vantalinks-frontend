@@ -30,11 +30,13 @@ function Register(){
     const handleSubmit = async (e) => {
       e.preventDefault()
       try {
+        const csrftoken = await ensureCsrfToken();
         const response = await fetch(`${API_URL}/api/register/`, {
         method: "POST",
         credentials: "include",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "X-CSRFToken": csrftoken,
         },
         body: JSON.stringify(formData)
       });
