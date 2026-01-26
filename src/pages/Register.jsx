@@ -40,9 +40,7 @@ function Register(){
       });
 
       if (!response.ok) throw new Error("error")
-
-      
-
+      await refreshCsrfToken();
       navigate("/main")
 
       } catch(error) {
