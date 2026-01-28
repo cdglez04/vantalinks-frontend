@@ -19,12 +19,30 @@
     background-color: transparent;
     border: 1px solid white;
     border-radius: 25px;
+    padding: 15px 25px;
+    font-size: 18px; 
+    font-family: inherit;
+    line-height: 1.2;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
 }
 
 .ab-register-button{
     color: white;
     border-radius: 25px;
     border: 1px solid white;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-family: inherit;
+    line-height: 1.2;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
 
 }
 
@@ -363,7 +381,7 @@
 }
 
 .mp-side-bar-sections-container h4{
-    margin-left: -57%;
+    text-align: left;
 }
 
 .mp-side-bar-sections-container h4:hover{
@@ -531,6 +549,24 @@
 .mp-back-button{
     background-color: transparent;
     border-radius: 25px;
+    border: 1px solid transparent; 
+    padding: 8px;
+    cursor: pointer;
+    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 50px;
+    height: 50px;
+}
+
+.mp-back-button:hover{
+    border: 1px solid #535bf2;
 }
 
 .mp-back-button:focus{
@@ -650,6 +686,10 @@
     height: 80px;
     width: 80px;
     background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .mp-add-url-div:hover{
@@ -657,10 +697,6 @@
     cursor: pointer;
 }
 
-.mp-add-url-div svg{
-    margin-left: 30%;
-    margin-top: 28%;
-}
 
 .mp-backdrop{
     position: fixed;
@@ -710,7 +746,9 @@
 }
 
 .mp-menu-crudSection p{
+    margin-top: -5%;
     margin-left: 10%;
+    margin-bottom: -5%;
     width: 300px;
 }
 
@@ -787,12 +825,16 @@
     margin-left: 50px;
 }
 
-.up-user-avatar{
-    padding-top: 1.9%;
+.up-user-avatar{ 
     font-size: 50px;
     border-radius: 50%;
     height: 125px;
     width: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
 }
 
 .up-user-info-div{
@@ -905,13 +947,13 @@
     border: 1px solid rgb(83, 83, 83);
     border-radius: 25px;
     width: 430px;
-    height: 500px;
+    height: 550px;
     background-color: black;
     animation: fadeInScale 0.3s ease-out;
 }
 
 .up-change-password-container h3{
-    margin-top: 10%;
+    margin-top: 5%;
     margin-bottom: 10%;
     font-size: 25px;
 }
@@ -926,7 +968,7 @@
     border: 1px solid white;
     border-radius: 10px;
     height: 50px;
-    margin-bottom: 10%;
+    margin-bottom: 8%;
 }
 
 .up-color-input{
