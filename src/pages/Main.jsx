@@ -1026,7 +1026,7 @@ function Main(){
                             setNewUsername("")
                             setNewFirstName("")
                             setNewColor("")}}></div>
-                        <div className='up-change-password-container'>
+                        <div className='up-change-user-info'>
                             <h3>Edit User Info</h3>
                             <span>Name: </span>
                             <input 

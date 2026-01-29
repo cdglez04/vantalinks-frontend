@@ -325,6 +325,7 @@
     z-index: 9999;
     animation: slideIn2 0.3s ease-out;
     background: linear-gradient(to right, #11024A, #29015D, #3E0368) ;
+    overflow-y: auto;
 }
 
 .mp-side-bar-search-result a {
@@ -833,7 +834,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
     color: white;
 }
 
@@ -963,6 +963,41 @@
 }
 
 .up-change-password-container input{
+    padding: 5px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 50px;
+    margin-bottom: 8%;
+}
+
+.up-change-user-info{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    align-items: center;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 25px;
+    width: 430px;
+    height: 470px;
+    background-color: black;
+    animation: fadeInScale 0.3s ease-out;
+}
+
+.up-change-user-info h3{
+    margin-top: 5%;
+    margin-bottom: 10%;
+    font-size: 25px;
+}
+
+.up-change-user-info span{
+    margin-right: 5%;
+}
+
+.up-change-user-info input{
     padding: 5px;
     color: white;
     border: 1px solid white;
@@ -1155,9 +1190,7 @@
     padding-right: 5px;
 }
 
-.up-user-avatar {
-    padding-top: 3.7%;
-}
+
 
 .mp-success-message,
 .mp-error-message{
@@ -1179,6 +1212,245 @@
 .up-change-password-container{
     top: 300px;
     left: 400px;
+}
+
+}
+
+@media(max-width: 480px) {
+/*HOME PAGE*/
+.ab-main-container{
+    width: 450px;
+    margin: 5px;
+    margin-left: 5%;
+
+}
+
+.ab-login-register-buttons-container{
+    margin-top: 10%;
+    margin-left: 0%;
+    text-align: right;
+    width: 450px;
+}
+
+.ab-title{
+    margin: 0%;
+    text-align: center;
+    font-size: 50px;
+}
+
+.ab-description-section{
+    padding: 20px;
+    text-align: center;
+    margin: 0px;
+}
+
+.ab-hr{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.ab-section-1{
+    width: 450px;
+    margin: 0px;
+}
+
+.ab-video-1{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 450px;
+    height: 200px;    
+}
+
+.ab-container-info{
+    width: 450px;
+}
+
+.ab-section-1-text{
+    font-size: 35px;  
+}
+
+.ab-section-1-pharagraph{
+    text-align: center;
+    width: 450px;
+    font-size: 18px;
+    margin: 0px;
+    padding: 20px;
+}
+
+.ab-footer hr{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.ab-footer{
+    width: 450px;
+    height: 300px;
+}
+
+.ab-footer h1{
+    font-size: 50px;
+}
+
+.ab-footer-links-div{
+    display: flex;
+    justify-content: center;
+}
+
+.ab-footer-links-div div{
+    margin-right: 5%;
+    margin-bottom: 0%;
+}
+
+.ab-footer a{
+    font-size: 18px;
+    color: white;
+}
+
+/*LOGIN PAGE*/
+
+
+.lg-login-register-title{
+    font-size: 50px;
+    width: 450px;
+    margin-left: 0%;
+}
+
+.lg-form{
+    margin-left: 6%;
+    
+}
+
+/*REGISTER PAGE*/
+.rg-button-back-container{
+    padding-top: 5%;
+}
+
+.rg-form{
+    margin-left: 6%;
+}
+/*MAIN PAGE*/
+
+.mp-side-bar{
+    width: 170px;
+}
+.mp-search-button{
+    width: 100px;
+}
+
+.mp-side-bar-search-result{
+    text-align: left;
+    width: 130px;
+    top: 6%;
+    left: 1.5%;
+}
+
+.mp-side-bar-search-result a {
+    font-size: 15px;
+    white-space: nowrap;       
+    overflow: hidden;   
+    text-overflow: ellipsis;
+}
+
+
+
+.mp-side-bar-sections-container h4{
+   margin-left: 0%; 
+   font-size: 15px;
+}
+.mp-side-bar-nav h5{
+    font-size: 15px;
+}
+
+.mp-side-bar-section-div h5{
+    font-size: 15px;
+    margin-top: 1%;
+    max-width: 100px;
+}
+
+.mp-side-bar-section-div div {
+    width: 30px;
+}
+
+.mp-side-bar-section-div div svg{
+    font-size: 15px;
+}
+
+.mp-sidebar-urls-container div a{
+    margin-top: 2%;
+    font-size: 15px;   
+}
+
+.mp-user-info{
+    height: 120px;
+}
+
+.mp-user-info h1 {
+    font-size: 40px;
+}
+.mp-header-div {
+   margin-top: 2%;
+}
+
+.mp-header-div h1 {
+    font-size: 40px;
+    margin: 0%;
+    
+}
+
+.mp-hr{
+    margin-right: 8%;
+}
+
+.up-user-info-container{
+    height: 300px;
+}
+
+.up-user-avatar{ 
+    height: 100px;
+    width: 100px;
+}
+
+.up-user-info-div div {
+    margin-top: -15%;
+}
+
+.up-user-info-div div h2{
+    font-size: 25px;
+}
+
+.up-user-info-div div svg{
+    font-size: 15px;
+    margin-top: 4%;
+    margin-left: 2%;
+}
+
+.up-user-info-div span{
+    font-size: 15px;
+}
+
+.up-stats-container{
+    margin-top: -10%;
+}
+
+.mp-menu-crudSection{
+    left: 27%;
+}
+
+.mp-menu-crudUrl{
+    top: 27%;
+    left: 28%;  
+}
+
+.up-change-password-container{
+    top: 28%;
+    left: 27%;
+}
+
+.up-change-user-info{
+    top: 28%;
+    left: 27%;
 }
 
 }
