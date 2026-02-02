@@ -1219,7 +1219,7 @@
 @media(max-width: 480px) {
 /*HOME PAGE*/
 .ab-main-container{
-    width: 450px;
+    width: 380px;
     margin: 5px;
     margin-left: 5%;
 
@@ -1227,18 +1227,19 @@
 
 .ab-login-register-buttons-container{
     margin-top: 10%;
-    margin-left: -20%;
+    margin-left: -5%;
     text-align: right;
-    width: 450px;
+    width: 380px;
 }
 
 .ab-title{
     margin: 0%;
     text-align: center;
-    font-size: 50px;
+    font-size: 45px;
 }
 
 .ab-description-section{
+    font-size: 15px;
     padding: 20px;
     text-align: center;
     margin: 0px;
@@ -1246,34 +1247,37 @@
 
 .ab-hr{
     margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 4%;
+    margin-right: 7%;
 }
 
 .ab-section-1{
-    width: 450px;
+    width: 380px;
     margin: 0px;
 }
 
 .ab-video-1{
     margin-top: 5%;
     margin-bottom: 5%;
-    width: 450px;
+    margin-left: 3%;
+    width: 350px;
     height: 200px;    
 }
 
 .ab-container-info{
-    width: 450px;
+    width: 380px;
+    margin-left: 0px;
 }
 
 .ab-section-1-text{
-    font-size: 35px;  
+    margin-top: 2%;
+    font-size: 30px;  
 }
 
 .ab-section-1-pharagraph{
     text-align: center;
-    width: 450px;
-    font-size: 18px;
+    width: 380px;
+    font-size: 15px;
     margin: 0px;
     padding: 20px;
 }
@@ -1281,21 +1285,23 @@
 .ab-footer hr{
     margin-top: 5%;
     margin-left: 5%;
-    margin-right: 5%;
+    margin-right: 2%;
 }
 
 .ab-footer{
-    width: 450px;
-    height: 300px;
+    width: 380px;
+    height: 250px;
 }
 
 .ab-footer h1{
-    font-size: 50px;
+    font-size: 40px;
+    margin-left: 0px;
 }
 
 .ab-footer-links-div{
     display: flex;
     justify-content: center;
+    margin-right: 0px
 }
 
 .ab-footer-links-div div{
@@ -1304,7 +1310,7 @@
 }
 
 .ab-footer a{
-    font-size: 18px;
+    font-size: 15px;
     color: white;
 }
 
