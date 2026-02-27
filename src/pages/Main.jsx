@@ -102,33 +102,32 @@ function Main(){
         }, 3000);
     }
 
-    const handleLogout = async () => {
-        try {
-            const csrftoken = await ensureCsrfToken();
-            fetch(`${API_URL}/api/logout/`,{
-                method:"POST",
-                credentials: "include",
-                headers: {
-                    'X-CSRFToken': csrftoken,
-                    'Content-Type': 'application/json',
-                }
-            })
-            
-            .then((response) => {
-                const data = response.json()
-                if (response.ok){
-                    showSuccess(data.message)
-                    console.log("Logged out succesfully")
-                    navigate("/")    
-                } else {
-                    console.log("Logged out wrong")
-                }
-            })
-        } catch (error) {
-            console.log("Error", error)
-        }
+const handleLogout = async () => {
+    try {
+        const csrftoken = await ensureCsrfToken();
+        const response = await fetch(`${API_URL}/api/logout/`,{
+            method:"POST",
+            credentials: "include",
+            headers: {
+                'X-CSRFToken': csrftoken,
+                'Content-Type': 'application/json',
+            }
+        });
         
+        if (response.ok) {
+            const data = await response.json();
+            showSuccess(data.message || "Logged out successfully");
+            console.log("Logged out successfully");
+            navigate("/"); // Redirige a home page
+        } else {
+            console.log("Logout failed");
+            showError("Logout failed");
+        }
+    } catch (error) {
+        console.error("Logout error:", error);
+        showError("Logout error");
     }
+};
 
     //Get info of the logged user 
     const getUserInfo = async () => {
