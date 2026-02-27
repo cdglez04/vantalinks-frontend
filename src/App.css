@@ -143,7 +143,6 @@
 /*LOGIN PAGE*/
 
 .lg-button-back-container{
-    margin-top: -7%;
     margin-bottom: -2%;
     width: 100px;
     height: 100px;
@@ -234,7 +233,6 @@
 .rg-button-back-container{
     width: 100px;
     height: 100px;
-    margin-top: -5%;
     margin-bottom: -3%;
 }
 
@@ -379,6 +377,7 @@
     margin-top: 2%;
     margin-left: 5%;
     margin-right: 5%;
+    max-height: 200px;
 }
 
 .mp-side-bar-sections-container h4{
@@ -417,6 +416,13 @@
 .mp-side-bar-section-div div svg:hover{
     opacity: 0.7;
     cursor: pointer;
+}
+
+.mp-sidebar-urls-container {
+    
+    max-height: 300px; 
+    overflow-y: auto;
+    border: 0px solid transparent;
 }
 
 .mp-sidebar-urls-container hr {
@@ -756,7 +762,7 @@
 .mp-menu-DownloadBackup-p{
     margin-top: -5%;
     margin-left: 10%;
-    width: 300px;
+    font-size: 17px;
 }
 
 .mp-menu-crudSection input:focus{
@@ -1221,13 +1227,11 @@
 .ab-main-container{
     width: 380px;
     margin: 5px;
-    margin-left: 5%;
-
 }
 
 .ab-login-register-buttons-container{
     margin-top: 10%;
-    margin-left: -5%;
+    margin-left: -0%;
     text-align: right;
     width: 380px;
 }

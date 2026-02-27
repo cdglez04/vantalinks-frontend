@@ -656,85 +656,87 @@ function Main(){
                         Sections
                         </h5>
                         <svg onClick={handleCreateFunction} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M11 13H5v-2h6V5h2v6h6v2h-6v6h-2z"/></svg>                        </div>
-
-                    <div className='mp-side-bar-sections-container'>
-                        <h4 onClick={handleFavoriteFunction}>Favorites</h4>
-                       {sections.map((section) => (
-                            <div className='mp-side-bar-section-div' key={section.id}>
-                                <h5
-                                    onClick={() => {
-                                        setUserInfoPageActivate(false)
-                                        setFavoriteActivate(false)
-                                        getUrlsBySection(section.id, section.name_section)
-                                        setUpdateSectionNameActivate(false)
-                                        setSectionName(section.name_section)
-                                        setSectionId(section.id)}}>
-                                        {section.name_section}
-                                </h5>
-                                <div>
-                                    <svg 
-                                    onClick={() => handleEditFunction(section.name_section, section.id)} 
-                                    name="edit_svg" 
-                                    xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 21h16M5.666 13.187A2.28 2.28 0 0 0 5 14.797V18h3.223c.604 0 1.183-.24 1.61-.668l9.5-9.505a2.28 2.28 0 0 0 0-3.22l-.938-.94a2.277 2.277 0 0 0-3.222.001z"/></svg>
-                                    <svg 
-                                    onClick={() => handleDeleteFunction(section.name_section, section.id)} 
-                                    name='delete_svg' 
-                                    xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18 19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7H4V4h4.5l1-1h4l1 1H19v3h-1zM6 7v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V7zm12-1V5h-4l-1-1h-3L9 5H5v1zM8 9h1v10H8zm6 0h1v10h-1z"/></svg>
+                    
+                    <div> 
+                        <div className='mp-side-bar-sections-container'>
+                            <h4 onClick={handleFavoriteFunction}>Favorites</h4>
+                        {sections.map((section) => (
+                                <div className='mp-side-bar-section-div' key={section.id}>
+                                    <h5
+                                        onClick={() => {
+                                            setUserInfoPageActivate(false)
+                                            setFavoriteActivate(false)
+                                            getUrlsBySection(section.id, section.name_section)
+                                            setUpdateSectionNameActivate(false)
+                                            setSectionName(section.name_section)
+                                            setSectionId(section.id)}}>
+                                            {section.name_section}
+                                    </h5>
+                                    <div>
+                                        <svg 
+                                        onClick={() => handleEditFunction(section.name_section, section.id)} 
+                                        name="edit_svg" 
+                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 21h16M5.666 13.187A2.28 2.28 0 0 0 5 14.797V18h3.223c.604 0 1.183-.24 1.61-.668l9.5-9.505a2.28 2.28 0 0 0 0-3.22l-.938-.94a2.277 2.277 0 0 0-3.222.001z"/></svg>
+                                        <svg 
+                                        onClick={() => handleDeleteFunction(section.name_section, section.id)} 
+                                        name='delete_svg' 
+                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18 19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7H4V4h4.5l1-1h4l1 1H19v3h-1zM6 7v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V7zm12-1V5h-4l-1-1h-3L9 5H5v1zM8 9h1v10H8zm6 0h1v10h-1z"/></svg>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className='mp-sidebar-urls-container'>
-                        <hr></hr>
-                        { favoriteActivate && (
-                            urlsFavorites 
-                            .map((url) => ( 
-                                <div key={url.id}>
-                                    <a  href={url.link} target='_blank' rel='noopener noreferrer'>
-                                        <span>{url.url_name}</span> 
-                                    </a>
-                                    <div className='mp-sidebar-urls-svgs-container'>
-                                        {url.favorite ? (
-                                            <svg onClick={() => favoriteFunction(url.id, url.favorite)} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M17.562 21.56a1 1 0 0 1-.465-.116L12 18.764l-5.097 2.68a1 1 0 0 1-1.45-1.053l.973-5.676l-4.124-4.02a1 1 0 0 1 .554-1.705l5.699-.828l2.549-5.164a1.04 1.04 0 0 1 1.793 0l2.548 5.164l5.699.828a1 1 0 0 1 .554 1.705l-4.124 4.02l.974 5.676a1 1 0 0 1-.985 1.169Z"/></svg>
-                                        ) : (
-                                            <svg onClick={() => favoriteFunction(url.id, url.favorite)} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21.919 10.127a1 1 0 0 0-.845-1.136l-5.651-.826l-2.526-5.147a1.037 1.037 0 0 0-1.795.001L8.577 8.165l-5.651.826a1 1 0 0 0-.556 1.704l4.093 4.013l-.966 5.664a1.002 1.002 0 0 0 1.453 1.052l5.05-2.67l5.049 2.669a1 1 0 0 0 1.454-1.05l-.966-5.665l4.094-4.014a1 1 0 0 0 .288-.567m-5.269 4.05a.5.5 0 0 0-.143.441l1.01 5.921l-5.284-2.793a.5.5 0 0 0-.466 0L6.483 20.54l1.01-5.922a.5.5 0 0 0-.143-.441L3.07 9.98l5.912-.864a.5.5 0 0 0 .377-.275L12 3.46l2.64 5.382a.5.5 0 0 0 .378.275l5.913.863z"/></svg>
-                                        )}                                
-                                        <svg 
-                                        onClick={() => handleEditUrlFunction(url.id ,url.url_name, url.link)}
-                                        name="edit_svg" 
-                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 21h16M5.666 13.187A2.28 2.28 0 0 0 5 14.797V18h3.223c.604 0 1.183-.24 1.61-.668l9.5-9.505a2.28 2.28 0 0 0 0-3.22l-.938-.94a2.277 2.277 0 0 0-3.222.001z"/></svg>
-                                        <svg 
-                                        onClick={() => handleDeleteUrlFunction(url.id, url.url_name)}
-                                        name='delete_svg' 
-                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18 19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7H4V4h4.5l1-1h4l1 1H19v3h-1zM6 7v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V7zm12-1V5h-4l-1-1h-3L9 5H5v1zM8 9h1v10H8zm6 0h1v10h-1z"/></svg>
+                            ))}
+                        </div>
+                        <div className='mp-sidebar-urls-container'>
+                            <hr></hr>
+                            { favoriteActivate && (
+                                urlsFavorites 
+                                .map((url) => ( 
+                                    <div key={url.id}>
+                                        <a  href={url.link} target='_blank' rel='noopener noreferrer'>
+                                            <span>{url.url_name}</span> 
+                                        </a>
+                                        <div className='mp-sidebar-urls-svgs-container'>
+                                            {url.favorite ? (
+                                                <svg onClick={() => favoriteFunction(url.id, url.favorite)} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M17.562 21.56a1 1 0 0 1-.465-.116L12 18.764l-5.097 2.68a1 1 0 0 1-1.45-1.053l.973-5.676l-4.124-4.02a1 1 0 0 1 .554-1.705l5.699-.828l2.549-5.164a1.04 1.04 0 0 1 1.793 0l2.548 5.164l5.699.828a1 1 0 0 1 .554 1.705l-4.124 4.02l.974 5.676a1 1 0 0 1-.985 1.169Z"/></svg>
+                                            ) : (
+                                                <svg onClick={() => favoriteFunction(url.id, url.favorite)} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21.919 10.127a1 1 0 0 0-.845-1.136l-5.651-.826l-2.526-5.147a1.037 1.037 0 0 0-1.795.001L8.577 8.165l-5.651.826a1 1 0 0 0-.556 1.704l4.093 4.013l-.966 5.664a1.002 1.002 0 0 0 1.453 1.052l5.05-2.67l5.049 2.669a1 1 0 0 0 1.454-1.05l-.966-5.665l4.094-4.014a1 1 0 0 0 .288-.567m-5.269 4.05a.5.5 0 0 0-.143.441l1.01 5.921l-5.284-2.793a.5.5 0 0 0-.466 0L6.483 20.54l1.01-5.922a.5.5 0 0 0-.143-.441L3.07 9.98l5.912-.864a.5.5 0 0 0 .377-.275L12 3.46l2.64 5.382a.5.5 0 0 0 .378.275l5.913.863z"/></svg>
+                                            )}                                
+                                            <svg 
+                                            onClick={() => handleEditUrlFunction(url.id ,url.url_name, url.link)}
+                                            name="edit_svg" 
+                                            xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 21h16M5.666 13.187A2.28 2.28 0 0 0 5 14.797V18h3.223c.604 0 1.183-.24 1.61-.668l9.5-9.505a2.28 2.28 0 0 0 0-3.22l-.938-.94a2.277 2.277 0 0 0-3.222.001z"/></svg>
+                                            <svg 
+                                            onClick={() => handleDeleteUrlFunction(url.id, url.url_name)}
+                                            name='delete_svg' 
+                                            xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18 19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7H4V4h4.5l1-1h4l1 1H19v3h-1zM6 7v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V7zm12-1V5h-4l-1-1h-3L9 5H5v1zM8 9h1v10H8zm6 0h1v10h-1z"/></svg>
+                                        </div>  
+                                    </div> 
+                                    ))
+                            )}
+                            {sectionActivate && (
+                                urlsBySection.map((url) => (
+                                    <div key={url.id}>
+                                        <a  href={url.link} target='_blank' rel='noopener noreferrer'>
+                                            <span>{url.url_name}</span> 
+                                        </a>
+                                        <div className='mp-sidebar-urls-svgs-container'>
+                                            {url.favorite ? (
+                                                <svg onClick={() => favoriteFunction(url.id, url.favorite)} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M17.562 21.56a1 1 0 0 1-.465-.116L12 18.764l-5.097 2.68a1 1 0 0 1-1.45-1.053l.973-5.676l-4.124-4.02a1 1 0 0 1 .554-1.705l5.699-.828l2.549-5.164a1.04 1.04 0 0 1 1.793 0l2.548 5.164l5.699.828a1 1 0 0 1 .554 1.705l-4.124 4.02l.974 5.676a1 1 0 0 1-.985 1.169Z"/></svg>
+                                            ) : (
+                                                <svg onClick={() => favoriteFunction(url.id, url.favorite)} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21.919 10.127a1 1 0 0 0-.845-1.136l-5.651-.826l-2.526-5.147a1.037 1.037 0 0 0-1.795.001L8.577 8.165l-5.651.826a1 1 0 0 0-.556 1.704l4.093 4.013l-.966 5.664a1.002 1.002 0 0 0 1.453 1.052l5.05-2.67l5.049 2.669a1 1 0 0 0 1.454-1.05l-.966-5.665l4.094-4.014a1 1 0 0 0 .288-.567m-5.269 4.05a.5.5 0 0 0-.143.441l1.01 5.921l-5.284-2.793a.5.5 0 0 0-.466 0L6.483 20.54l1.01-5.922a.5.5 0 0 0-.143-.441L3.07 9.98l5.912-.864a.5.5 0 0 0 .377-.275L12 3.46l2.64 5.382a.5.5 0 0 0 .378.275l5.913.863z"/></svg>
+                                            )}
+                                            <svg 
+                                            onClick={() => handleEditUrlFunction(url.id ,url.url_name, url.link)}
+                                            name="edit_svg" 
+                                            xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 21h16M5.666 13.187A2.28 2.28 0 0 0 5 14.797V18h3.223c.604 0 1.183-.24 1.61-.668l9.5-9.505a2.28 2.28 0 0 0 0-3.22l-.938-.94a2.277 2.277 0 0 0-3.222.001z"/></svg>
+                                            <svg 
+                                            onClick={() => handleDeleteUrlFunction(url.id, url.url_name)}
+                                            name='delete_svg' 
+                                            xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18 19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7H4V4h4.5l1-1h4l1 1H19v3h-1zM6 7v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V7zm12-1V5h-4l-1-1h-3L9 5H5v1zM8 9h1v10H8zm6 0h1v10h-1z"/></svg>
+                                        </div>  
                                     </div>  
-                                </div> 
-                                ))
-                        )}
-                        {sectionActivate && (
-                            urlsBySection.map((url) => (
-                                <div key={url.id}>
-                                    <a  href={url.link} target='_blank' rel='noopener noreferrer'>
-                                        <span>{url.url_name}</span> 
-                                    </a>
-                                    <div className='mp-sidebar-urls-svgs-container'>
-                                        {url.favorite ? (
-                                            <svg onClick={() => favoriteFunction(url.id, url.favorite)} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M17.562 21.56a1 1 0 0 1-.465-.116L12 18.764l-5.097 2.68a1 1 0 0 1-1.45-1.053l.973-5.676l-4.124-4.02a1 1 0 0 1 .554-1.705l5.699-.828l2.549-5.164a1.04 1.04 0 0 1 1.793 0l2.548 5.164l5.699.828a1 1 0 0 1 .554 1.705l-4.124 4.02l.974 5.676a1 1 0 0 1-.985 1.169Z"/></svg>
-                                        ) : (
-                                            <svg onClick={() => favoriteFunction(url.id, url.favorite)} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21.919 10.127a1 1 0 0 0-.845-1.136l-5.651-.826l-2.526-5.147a1.037 1.037 0 0 0-1.795.001L8.577 8.165l-5.651.826a1 1 0 0 0-.556 1.704l4.093 4.013l-.966 5.664a1.002 1.002 0 0 0 1.453 1.052l5.05-2.67l5.049 2.669a1 1 0 0 0 1.454-1.05l-.966-5.665l4.094-4.014a1 1 0 0 0 .288-.567m-5.269 4.05a.5.5 0 0 0-.143.441l1.01 5.921l-5.284-2.793a.5.5 0 0 0-.466 0L6.483 20.54l1.01-5.922a.5.5 0 0 0-.143-.441L3.07 9.98l5.912-.864a.5.5 0 0 0 .377-.275L12 3.46l2.64 5.382a.5.5 0 0 0 .378.275l5.913.863z"/></svg>
-                                        )}
-                                        <svg 
-                                        onClick={() => handleEditUrlFunction(url.id ,url.url_name, url.link)}
-                                        name="edit_svg" 
-                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 21h16M5.666 13.187A2.28 2.28 0 0 0 5 14.797V18h3.223c.604 0 1.183-.24 1.61-.668l9.5-9.505a2.28 2.28 0 0 0 0-3.22l-.938-.94a2.277 2.277 0 0 0-3.222.001z"/></svg>
-                                        <svg 
-                                        onClick={() => handleDeleteUrlFunction(url.id, url.url_name)}
-                                        name='delete_svg' 
-                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18 19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7H4V4h4.5l1-1h4l1 1H19v3h-1zM6 7v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V7zm12-1V5h-4l-1-1h-3L9 5H5v1zM8 9h1v10H8zm6 0h1v10h-1z"/></svg>
-                                    </div>  
-                                </div>  
-                                ))
-                        )}  
+                                    ))
+                            )}  
+                        </div>
                     </div>
                 </div>
                 <div className='mp-side-bar-userinfo'>
